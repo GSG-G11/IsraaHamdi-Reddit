@@ -1,0 +1,44 @@
+{
+  "name": "israahamdi-reddit",
+  "version": "1.0.0",
+  "description": "Reddit clone",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/GSG-G11/IsraaHamdi-Reddit.git"
+  },
+  "author": "Israa Hamdi Abu Rayya",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/GSG-G11/IsraaHamdi-Reddit/issues"
+  },
+  "homepage": "https://github.com/GSG-G11/IsraaHamdi-Reddit#readme",
+  "keywords": [
+    "Api",
+    "Express",
+    "Database",
+    "Postgres",
+    "Node",
+    "Test"
+  ],
+  "dependencies": {
+    "bcrypt": "^5.0.1",
+    "compression": "^1.7.4",
+    "cookie-parser": "^1.4.6",
+    "cross-env": "^7.0.3",
+    "env2": "^2.2.2",
+    "express": "^4.17.3",
+    "joi": "^17.6.0",
+    "jsonwebtoken": "^8.5.1",
+    "pg": "^8.7.3"
+  },
+  "devDependencies": {
+    "eslint": "^8.12.0",
+    "jest": "^27.5.1",
+    "nodemon": "^2.0.15",
+    "supertest": "^6.2.2"
+  }
+}
