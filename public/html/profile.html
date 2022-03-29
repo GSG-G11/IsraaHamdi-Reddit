@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reddit-Profile</title>
+    <link rel="stylesheet" href="../../css/index.css">
+    <link rel="shortcut icon" href="../../images/reddit.png" type="image/x-icon">
+     <!--Font Awesome Link -->
+     <link
+     rel="stylesheet"
+     href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+     integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p"
+     crossorigin="anonymous"
+   />
+</head>
+<body>
+    <nav>
+        <div class="logo">
+            <img src="../../images/reddit.png" alt="logo" >
+            <label><i class="far fa-search"></i></label>
+            <input type="search" name="search" id="input-search" placeholder="Search Reddit">
+        </div>
+        <div class="buttons">
+            <a href="/api/v1/home" class="sign-in ">Home</a>
+            <a href="/api/v1/logOut" class="sign-up">Logout</a>
+            <div class="header-user-dropdown">
+                <button >
+                    <span >
+                        <span>
+                            <i class="far fa-user"></i>
+                        </span><i class="fal fa-angle-down"></i>
+                    </span>
+                </button>
+            </div>
+            <div class="dropdown">
+                <a href="/api/v1/home" class="sign-in-x ">Home</a>
+                <a href="/api/v1/logOut" class="sign-up-x">Logout</a> 
+            </div>
+        </div>
+    </nav>
+    <section class="popular-posts user">
+        <h2>Posts</h2>
+        <div class="popular-content">
+           <div class="posts">
+           </div>
+        </div>
+    </section>
+    <script src="../../js/functions.js"></script>
+    <script src="../../js/profile.js"></script>
+</body>
+</html>

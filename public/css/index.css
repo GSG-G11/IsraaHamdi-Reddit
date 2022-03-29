@@ -1,0 +1,311 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+:root {
+    --secondaryColor :#0079D3;
+    --backGroundColor: rgb(218,224,230);
+    --whiteColor:#fff;
+    --backGroundColorInput: #F6F7F8;
+}
+body {
+    background-color: var(--backGroundColor);
+}
+nav {
+    position: fixed;
+    left: 0;
+    top: 0;
+    right: 0;
+    z-index: 1000;
+    display: flex;
+    justify-content: space-between;
+    padding: 0.2em 2em;
+    background-color: var(--whiteColor);
+    height: 3em;
+}
+nav .logo {
+    width: 60%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+nav .logo img {
+    height: 2.5em;
+    margin-right: 0.5em;
+}
+nav .logo label {
+    background-color: var(--backGroundColorInput);
+    height: 30px;
+    line-height: 2em;
+    width: 3em;
+    text-align: center;
+}
+nav .logo input {
+    background-color: var(--backGroundColorInput);
+    outline: none;
+    width: 35em;
+    height: 30px;
+    border: none;
+    line-height: 2em;
+}
+nav .buttons {
+    width: 40%;
+    margin: 0.5em;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+nav .buttons .sign-in,
+nav .buttons .sign-up{
+    color: var(--whiteColor);
+    text-decoration: none;
+    background-color:var(--secondaryColor) ;
+    padding: 0.5em 1.5em;
+    border-radius: 1em;
+    margin-right: 0.5em;
+}
+.header-user-dropdown {
+    position: relative;
+    display: none;
+}
+.header-user-dropdown button {
+    padding: 0.5em;
+    background-color: transparent;
+    border: 0.5px solid transparent ;
+    transition: all 1s ease-in-out;
+    cursor: pointer;
+}
+.header-user-dropdown:hover button {
+    border: 0.5px  solid var(--backGroundColorInput)
+}
+.header-user-dropdown button i {
+    font-size: 1.5em;
+}
+.dropdown {
+    position: absolute;
+    top: 3.5em;
+    right: 1em;
+    background-color: var(--whiteColor);
+    padding: 0.5em; 
+    width: 7em;
+    z-index: 80;
+    display: none;
+}
+.sign-in-x,
+.sign-up-x {
+    display: block;
+    margin-bottom: 0.5em;
+    text-decoration: none;
+    color: black;
+    font-size: 1.5em;
+    transition: all .5s ease-in-out;
+}
+.sign-in-x:hover,
+.sign-up-x:hover {
+    background: var(--secondaryColor);
+    color: var(--whiteColor);
+}
+
+.trending-today {
+    margin: 3em auto 1em;
+    width: 70vw;
+    padding-top: 1em;
+}
+.tranding-content {
+    display: flex;
+    justify-content: space-between;
+    gap: 1em;
+}
+.info {
+    width: 29vw;
+    height: 12em;
+    position: relative;
+    border-radius: 0.5em;
+}
+.info img{
+    width: 100%;
+    height: 100%;
+    border-radius: 0.5em;
+}
+.info-content {
+    padding: 0.5em;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    background-color: rgba(0,0,0,0.7);
+    border-radius: 0.5em;
+}
+.info-content h2 {
+    margin-top: 4.5em;
+    margin-bottom: 0.5em;
+    color: var(--whiteColor);
+    font-size: 16px;
+}
+.info-content p {
+    color: var(--whiteColor);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-size: 14px;
+    max-height: 50px;
+}
+.popular-posts {
+    margin: 1em auto;
+    width: 70vw;
+    padding-top: 1em;
+  
+}
+.popular-content {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    gap: 2em;
+}
+.popular-posts.user {
+    margin-top: 6em;
+}
+.popular-posts h2 {
+ margin-bottom: 0.5em;
+}
+.posts {
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+}
+.post {
+    display: flex;
+    margin-bottom: 0.5em;
+    background-color: var(--whiteColor);
+}
+.votes {
+    width: 10%;
+    display: flex;
+    flex-direction: column;
+}
+.votes-up,
+.votes-down {
+background-color: transparent;
+border: none;
+cursor: pointer;
+}
+.votes span,
+.votes i {
+  text-align: center;
+}
+.content {
+    width: 90%;
+    border-left:1px solid var(--backGroundColorInput) ;
+    padding: 0.5em;
+}
+.header {
+    margin-bottom: .5em;
+}
+.action {
+    display: flex;
+    margin-top: 1em;
+    border-top:1px solid var(--backGroundColorInput) ;
+    border-bottom:1px solid var(--backGroundColorInput) ;
+    padding: 0.5em;
+}
+.action div {
+    margin-right: .5em;
+    cursor: pointer;
+}
+.name-user {
+    text-decoration: underline;
+    cursor: pointer;
+}
+.comments {
+    display: block;
+    padding: 0.5em;
+}
+.add-comment input {
+    padding: 0.5em;
+    width: 30vw;
+    background-color: var(--backGroundColorInput);
+    border: none;
+}
+#add-comment-button {
+    background-color: var(--secondaryColor);
+    padding: 0.5em;
+    border-radius: 1em;
+    border: none;
+}
+.comment {
+    padding: 0.5em;
+    border-bottom:1px solid var(--backGroundColorInput) ; 
+}
+.comment-by {
+    font-weight: bold;
+}
+.aside {
+    padding: 1em;
+    width: 30%;
+    background-color: var(--whiteColor);
+}
+.display {
+    display: block;
+}
+.add-post-section {
+    width: 40vw;
+    margin: 0 auto ;
+}
+.add-post-section form {
+    margin-top: 5em;
+    display: flex;
+    flex-direction: column;
+}
+.add-post-section form input {
+    margin-bottom: .5em;
+    height: 2em;
+    padding: 0.5em;
+}
+.add-post-section form textarea {
+    margin-bottom: .5em;
+    min-height: 5em;
+    padding: 0.5em;
+}
+.add-post {
+    background-color: var(--secondaryColor);
+    padding: 1em 2em;
+    width: 10em;
+    border: none;
+    border-radius: 1em;
+    color: var(--whiteColor);
+}
+.error-post {
+    color: red
+}
+@media (max-width:768px) {
+    nav .logo input {
+        width: 15em;
+    }
+    nav .buttons .sign-in,
+    nav .buttons .sign-up{
+     display: none;
+    }
+    .header-user-dropdown {
+        display: block;
+    }
+    .trending-today {
+        width: 90vw;
+    }
+    .info {
+        width: 100%;
+    }
+    .info:nth-of-type(2),
+    .info:nth-of-type(3),
+    .info:last-of-type {
+        display: none;
+     }
+}
+@media (min-width:769px) and (max-width:1023px) {
+    .dropdown {
+        display: none;
+    }
+    .info:last-of-type {
+       display: none;
+    }
+}

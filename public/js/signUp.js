@@ -52,6 +52,7 @@ signupBtn.addEventListener('click', () => {
           errorEmail.textContent = data.message;
         } else {
           swal('Added!', data.message, 'success');
+          window.location.href = '/api/v1/home';
         }
       })
       .catch((err) => console.log(err));
