@@ -1,0 +1,138 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+:root {
+    --secondaryColor :#0079D3;
+}
+
+.container {
+    display: flex;
+    height: 100vh;
+}
+.welcome {
+    background: var(--secondaryColor);
+    width: 40%;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.welcome h1 {
+    margin-bottom: 0.5em;
+}
+.welcome p {
+    text-align: center;
+}
+.welcome #login {
+    margin-top: 1em;
+    background: none;
+    border: 1px solid #fff;
+    padding: .5em 2em;
+    border-radius: 2em;
+    color: #fff;
+    font-size: 1.2em;
+    font-weight: bold;
+    cursor: pointer;
+}
+.container main {
+    display: flex ;
+    flex-direction: column;
+    width: 60%;
+    margin: 7em auto;
+}
+.container main .social {
+    display: flex;
+    justify-content: center;
+    width: 50%;
+    margin: .5em auto;
+    font-size: 1.5em;
+}
+.container main .social i  {
+   border-radius: 50%;
+   border: 1px solid rgb(99, 98, 98);
+   height: 2em;
+   width: 2em;
+   text-align: center;
+   line-height: 2em;
+   margin-right: 0.5em;
+   cursor: pointer;
+}
+.container main p {
+ margin: 0 auto;
+ font-size: 1.5em;
+ margin-bottom: .5em;
+}
+.create-account {
+    color: var(--secondaryColor);
+    font-size: 3em;
+    margin-bottom: 0.5em;
+    text-align: center;
+}
+.control-form {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: .5em;
+}
+.control-form  input{
+    width: 25em;
+    height: 2.5em;
+    padding: 0.5em;
+    margin: 0 auto;
+}
+.control-form .error {
+    width: 20em;
+    padding: 0.5em;
+    margin: 0 auto;
+    color:red;
+}
+
+.control-form  input:focus {
+    outline: none;
+}
+#sign-up {
+    width: 15em;
+    height: 4em;
+    padding: .5em 2em;
+    background: var(--secondaryColor);
+    outline: none;
+    border: none;
+    color: #fff;
+    margin: .5em auto;
+    border-radius: 2em;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+@media (max-width:768px) {
+    .container {
+        flex-direction: column;
+        width: 100%;
+    }
+    .welcome {
+        width: 100%;
+        color: #fff;
+        padding-top: 5em;
+        padding-bottom: 5em;
+    }
+    .container main {
+        width: 100%;
+        margin: 2em auto;
+    }
+    .control-form  input{
+        width: 20em;
+    }
+    .control-form .error {
+        width: 15em;
+        padding: 0.5em;
+        margin: 0 auto;
+        color:red;
+    }
+}
+@media (max-width:769px) and (min-width:1023px){
+    
+}
+
+

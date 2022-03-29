@@ -2,8 +2,8 @@ const connection = require("../../config/connection")
 
 const addUserQuery = (name,email,password) => {
     const sql = {
-        TEXT : 'INSERT INTO users (name,email,password) VALUES ($1,$2,$3)',
-        VALUES : [name,email, password],
+        text : 'INSERT INTO users (name,email,password) VALUES ($1,$2,$3) RETURNING id',
+        values : [name,email, password],
     }
     return connection.query(sql)
 
