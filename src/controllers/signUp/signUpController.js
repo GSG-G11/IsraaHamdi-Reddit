@@ -13,7 +13,7 @@ const signUpController = (req, res, next) => {
          return bcrypt.hash(password, 10)
    }
   })
-  .then((hashPassword)=>addUserQuery(name,hashPassword,email))
+  .then((hashPassword)=>addUserQuery(name,email,hashPassword))
   .then((data)=>jwtSign({name,idUser:data.rows[0].id}))
   .then((token)=>res.cookie('token',token,{httpOnly: true, secure: true}).json({
          status: 200,
