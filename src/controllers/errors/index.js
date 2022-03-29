@@ -5,7 +5,7 @@ const clientError = (req, res) => {
 };
 
 const serverError = (err, req, res, next) => {
-  console.log(err.message)
+  console.log(err)
   if(err.status) {
     res.status(err.status).json({status: err.status,message:err.message})
   }else {

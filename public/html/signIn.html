@@ -18,12 +18,7 @@
    />
 </head>
 <body>
-    <div class="container">
-        <div class="welcome">
-            <h1>Welcome Back!</h1>
-			<p>To Keep connected with us please login with your personal info </p>
-			<a href="/signIn"><button id="sign-in">SIGN IN</button></a>
-        </div>
+    <div class="container sign-in-page">
         <main>
             <h2 class="create-account">Create Account</h2>
             <div class="social">
@@ -34,10 +29,6 @@
             <p>or use email for registraion:</p>
             <form>
                 <div class="control-form">
-                    <input type="text" id="name" name="name" placeholder=" Name">
-                    <span class="error-name error"></span>
-                </div>
-                <div class="control-form">
                     <input type="text" id="email" name="email" placeholder=" Email">
                     <span class="error-email error"></span>
                 </div>
@@ -46,11 +37,16 @@
                     <span class="error-password error"></span>
                 </div>
                 <div class="control-form">
-                    <button id="sign-up"  type="button">SIGN UP</button>  
+                    <button id="sign-in" type="button">SIGN IN</button>  
                 </div>       
             </form>
         </main>
+        <div class="welcome">
+            <h1>Hello, Friend!</h1>
+			<p>Enter your personal details and start journy with us </p>
+			<a href="/signUp"><button id="sign-up">SIGN UP</button></a>
+        </div>
     </div>
-    <script src="../js/signUp.js"></script>
+    <script src="../js/signIn.js"></script>
 </body>
 </html>
