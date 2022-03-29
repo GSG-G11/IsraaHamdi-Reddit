@@ -5,8 +5,52 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sign Up</title>
+    <link rel="stylesheet" href="../css/signup.css">
+    <link rel="shortcut icon" href="../images/reddit.png" type="image/x-icon">
+    <!--Swal Link -->
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+     <!--Font Awesome Link -->
+     <link
+     rel="stylesheet"
+     href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+     integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p"
+     crossorigin="anonymous"
+   />
 </head>
 <body>
-    
+    <div class="container">
+        <div class="welcome">
+            <h1>Welcome Back!</h1>
+			<p>To Keep connected with us please login with your personal info </p>
+			<a href="/login"><button id="login">SIGN IN</button></a>
+        </div>
+        <main>
+            <h2 class="create-account">Create Account</h2>
+            <div class="social">
+                <i class="fab fa-facebook-f"></i>
+                <i class="fab fa-google-plus-g"></i>
+                <i class="fab fa-linkedin-in"></i>
+            </div>
+            <p>or use email for registraion:</p>
+            <form>
+                <div class="control-form">
+                    <input type="text" id="name" name="name" placeholder=" Name">
+                    <span class="error-name error"></span>
+                </div>
+                <div class="control-form">
+                    <input type="text" id="email" name="email" placeholder=" Email">
+                    <span class="error-email error"></span>
+                </div>
+                <div class="control-form">
+                    <input type="password" id="password" name="password" placeholder="Password">
+                    <span class="error-password error"></span>
+                </div>
+                <div class="control-form">
+                    <button id="sign-up"  type="button">SIGN UP</button>  
+                </div>       
+            </form>
+        </main>
+    </div>
+    <script src="../js/signUp.js"></script>
 </body>
 </html>

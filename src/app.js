@@ -14,7 +14,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 app.use(express.static(join(__dirname, '..', 'public')));
 
-app.use('/api/vi', apiRouter);
+app.use('/api/v1', apiRouter);
 app.use(viewRouter);
 
 app.use(clientError);

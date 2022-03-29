@@ -5,8 +5,12 @@ const clientError = (req, res) => {
 };
 
 const serverError = (err, req, res, next) => {
-//server error
-
+  console.log(err.message)
+  if(err.status) {
+    res.status(err.status).json({status: err.status,message:err.message})
+  }else {
+    res.status(500).sendFile(join(__dirname, '..', '..','..', 'public', 'html', '500.html'));
+  }
 };
 
 module.exports = { clientError, serverError };
