@@ -43,6 +43,7 @@ signInBtn.addEventListener('click', () => {
         errorPassword.textContent = data.message;
        } else {
         swal('success sign in :)', data.message, 'success');
+        window.location.href = '/api/v1/home';
        }
       })
       .catch((err) => console.log(err));

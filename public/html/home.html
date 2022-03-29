@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reddit</title>
+    <link rel="stylesheet" href="../../css/index.css">
+    <link rel="shortcut icon" href="../../images/reddit.png" type="image/x-icon">
+    <!--Swal Link -->
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+     <!--Font Awesome Link -->
+     <link
+     rel="stylesheet"
+     href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+     integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p"
+     crossorigin="anonymous"
+   />
+</head>
+<body>
+    <nav>
+        <div class="logo">
+            <img src="../../images/reddit.png" alt="logo" >
+            <label><i class="far fa-search"></i></label>
+            <input type="search" name="search" id="input-search" placeholder="Search Reddit">
+        </div>
+        <div class="buttons">
+            <a href="/api/v1/profile" class="sign-in user-login"></a>
+            <a href="/api/v1/logOut" class="sign-up">Logout</a>
+            <div class="header-user-dropdown">
+                <button >
+                    <span >
+                        <span>
+                            <i class="far fa-user"></i>
+                        </span><i class="fal fa-angle-down"></i>
+                    </span>
+                </button>
+            </div>
+            <div class="dropdown">
+                <a href="/api/v1/profile" class="sign-in-x user-login"></a>
+                <a href="/api/v1/logOut" class="sign-up-x">Logout</a> 
+            </div>
+        </div>
+    </nav>
+    <section class="add-post-section">
+       <form>
+               <input type="text" class="title" name="title" placeholder="title">
+               <textarea name="description" class="description" placeholder="description"></textarea>
+               <span class="error-post"></span>
+               <button type="button" class="add-post">add post</button>
+       </form>
+    </section>
+    <section class="popular-posts">
+        <h2>Popular Posts</h2>
+        <div class="popular-content">
+           <div class="posts">
+           </div>
+           <aside class="aside">
+                Reddit clone
+           </aside>
+        </div>
+    </section>
+    <script src="../../js/functions.js"></script>
+    <script src="../../js/domPosts.js"></script>
+    <script src="../../js/index.js"></script>
+</body>
+</html>

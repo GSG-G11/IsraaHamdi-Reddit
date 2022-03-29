@@ -16,7 +16,7 @@ const signUpController = (req, res, next) => {
   .then((hashPassword)=>addUserQuery(name,email,hashPassword))
   .then((data)=>jwtSign({name,idUser:data.rows[0].id}))
   .then((token)=>res.cookie('token',token,{httpOnly: true, secure: true}).json({
-         status: 200,
+         status: 201,
          message: 'Register successfully :)',
       }))
   .catch((error)=> {
