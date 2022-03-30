@@ -2,9 +2,10 @@ const { clientError, serverError } = require('./errors');
 const { signUpPage, signUpController } = require('./signUp');
 const { signInPage, signInController } = require('./signIn');
 const { postsController,homePageController, addPostController } = require('./posts');
-const { getCommentsController } = require('./comments');
+const { getCommentsController,addCommentsController } = require('./comments');
 const logOutController = require('./logOutController')
 const { userNameController, profileUserController, profileUserPageController } = require('./users');
+const { addVotesController, countVotesController, deleteVotesController } = require('./votes');
 
 module.exports = {
   clientError,
@@ -21,4 +22,8 @@ module.exports = {
   userNameController,
   profileUserController,
   profileUserPageController,
+  addCommentsController,
+  addVotesController,
+  countVotesController,
+  deleteVotesController
 };

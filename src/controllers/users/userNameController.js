@@ -1,4 +1,4 @@
-const { getUserNameQuery } = require("../../database/queries");
+const { getUserNameQuery } = require('../../database/queries');
 
 const userNameController = (req,res,next) => {
  const {user_id} = req.body;

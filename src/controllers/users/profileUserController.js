@@ -1,4 +1,4 @@
-const { getPostForUserQuery } = require("../../database/queries");
+const { getPostForUserQuery } = require('../../database/queries');
 
 const profileUserController = (req,res,next) => {
  const {user_id} = req.body;

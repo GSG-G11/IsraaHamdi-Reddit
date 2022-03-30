@@ -1,4 +1,4 @@
-const { getCommnetsQuery } = require("../../database/queries");
+const { getCommnetsQuery } = require('../../database/queries');
 
 const getCommentsController = (req,res,next) => { 
     const { id } = req.params;
@@ -9,7 +9,7 @@ const getCommentsController = (req,res,next) => {
         } else {
           res.status(200).json({
             status: 200,
-            message: "No Comments",
+            message: 'No Comments',
           });
         }
       })

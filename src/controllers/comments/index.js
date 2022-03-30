@@ -1,3 +1,4 @@
 const getCommentsController = require('./getCommentsController');
+const addCommentsController = require('./addCommentscontroller');
 
-module.exports = { getCommentsController };
+module.exports = { getCommentsController, addCommentsController };

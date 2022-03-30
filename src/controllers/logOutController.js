@@ -1,4 +1,4 @@
 const logOutController = (req,res) => {
-    res.clearCookie('token').redirect('/signIn');
+    res.clearCookie('token').redirect('/');
 }
 module.exports = logOutController;

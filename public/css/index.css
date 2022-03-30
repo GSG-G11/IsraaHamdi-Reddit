@@ -226,12 +226,14 @@ cursor: pointer;
     width: 30vw;
     background-color: var(--backGroundColorInput);
     border: none;
+    margin-right: 0.5em;
 }
 #add-comment-button {
     background-color: var(--secondaryColor);
     padding: 0.5em;
     border-radius: 1em;
     border: none;
+    color: var(--whiteColor);
 }
 .comment {
     padding: 0.5em;
@@ -241,9 +243,58 @@ cursor: pointer;
     font-weight: bold;
 }
 .aside {
+    /* padding: 1em; */
+    width: 30%; 
+}
+.communities {
+    min-height: 20em;
+    margin-bottom: 0.5em;
+    background-color: var(--whiteColor); 
+}
+.aside .aww  {
+    position: relative;
+}
+.aside .aww img {
+    width: 100%;
+    height: 5em;
+}
+.aside .aww p {
+    width: 100%;
+    position: absolute;
+    left: 1em;
+    bottom: 0.5em;
+    color: var(--whiteColor);
+    z-index: 11;
+}
+.aside .top-aww {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
     padding: 1em;
-    width: 30%;
+    border-bottom: 1px solid var(--backGroundColorInput);
+} 
+.aside .top-aww span {
+    margin-right: 1em;
+}
+.aside .top-aww span img {
+    width: 2em;
+    height: 2em;
+    border-radius: 50%;
+}
+.aside .about {
+    position: sticky;
+    top: 4em;
+    padding: 1em;
     background-color: var(--whiteColor);
+}
+.aside .about-info {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1em;
+}
+.aside .about-info span {
+    display: block;
+    margin-bottom: 0.2em;
 }
 .display {
     display: block;
@@ -300,6 +351,15 @@ cursor: pointer;
     .info:last-of-type {
         display: none;
      }
+     .popular-posts {
+         width: 100%;
+     }
+     .posts {
+         width: 100%;
+     }
+     .aside {
+         display: none;
+     }
 }
 @media (min-width:769px) and (max-width:1023px) {
     .dropdown {
@@ -307,5 +367,8 @@ cursor: pointer;
     }
     .info:last-of-type {
        display: none;
+    }
+    .add-comment input {
+        width: 20vw;
     }
 }
