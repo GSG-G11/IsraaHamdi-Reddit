@@ -1,9 +1,8 @@
-const { jwtVerify } = require("../utils");
+const { jwtVerify } = require('../utils');
 
 const verifyUser = (req, res, next) => {
     const { token } = req.cookies;
-    if (!token) return res.status(302).redirect('/login');
-
+    if (!token) return res.status(401).json('UnAuthraised');
     return jwtVerify(token)
       .then((data) => {
         req.body.user_id = data.idUser;

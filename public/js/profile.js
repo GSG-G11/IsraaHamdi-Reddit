@@ -18,7 +18,7 @@ const getUserPosts = () => {
     fetch ('/api/v1/profile/user')
     .then(res=>res.json())
     .then((data)=> {
-        if(data.message === "there is no posts") {
+        if(data.message === 'there is no posts') {
             getElement('.posts').textContent = data.message
         }
         else {

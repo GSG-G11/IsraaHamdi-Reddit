@@ -1,28 +1,8 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable no-undef */
-const renderComments = () => {
-    const comments = createElement('div','comments');
-    const addComment = createElement('div','add-comment');
-    const form = createElement('form');
-    const input = createElement('input');
-    input.type = 'text';
-    input.name = 'description';
-    const addCommentBtn = createElement('button','','add comment');
-    addCommentBtn.type = 'button';
-    addCommentBtn.id = 'add-comment-button' ;
-    form.append(input, addCommentBtn);
-    addComment.append(form);
-    const comment = createElement('div','comment');
-    const commentBy = createElement('span','comment-by','isaam');
-    const commentContent = createElement('span','comment-content','nice');
-    comment.append(commentBy, commentContent);
-    comments.append(addComment,comment);
-
-    return comments;
-
-}
 
   const renderPosts = (data) => {
+    deleteChild(getElement('.posts'))
       data.forEach((postInfo)=>{
       const post = createElement('div','post');
       const votes = createElement('div','votes');
@@ -30,6 +10,10 @@ const renderComments = () => {
       const votesUpIcon = createElement('i','far fa-arrow-alt-up');
       votesUp.appendChild(votesUpIcon);
       const numberVotes = createElement('span','number-votes','0');
+      fetch(`/api/v1/votes/count/${postInfo.id}`)
+      .then(res=>res.json())
+      .then(data=>numberVotes.textContent = data.message)
+      .catch(err=>console.log(err))
       const votesDown = createElement('button','votes-down');
       const votesDownIcon = createElement('i','far fa-arrow-alt-down');
       votesDown.appendChild(votesDownIcon);
@@ -45,7 +29,6 @@ const renderComments = () => {
       const action = createElement('div','action');
       const commentIcon = createElement('div','comment-icon');
       const iconComment = createElement('i','fal fa-comment-alt');
-      commentIcon.append(iconComment,'58comments');
       const share = createElement('div','share');
       const iconShare = createElement('i','fal fa-share');
       share.append(iconShare, 'Share');
@@ -54,11 +37,104 @@ const renderComments = () => {
       save.append(iconSave, 'Save');
       
       action.append(commentIcon,share,save);
-     const  comments = renderComments(data);
+      const comments = createElement('div','comments');
+      const addComment = createElement('div','add-comment');
+      const form = createElement('form');
+      const input = createElement('input');
+      input.type = 'text';
+      input.name = 'description';
+      const addCommentBtn = createElement('button','','add comment');
+      addCommentBtn.type = 'button';
+      addCommentBtn.id = 'add-comment-button' ;
+      form.append(input, addCommentBtn);
+      addComment.append(form);
+      comments.append(addComment);
+      fetch(`/api/v1/post/comments/${postInfo.id}`)
+      .then(res=>res.json())
+      .then(comm=>{
+        if(comm.data) {
+          commentIcon.append(iconComment,comm.data.length,'comments');
+          comm.data.forEach((ele)=> { 
+            const comment = createElement('div','comment');
+            const commentBy = createElement('span','comment-by',ele.name);
+            const commentContent = createElement('span','comment-content',ele.description);
+            comment.append(commentBy,' ', commentContent);
+            comments.append(comment);
+          })
+        }else {
+          commentIcon.append(iconComment,0,'comments');
+        }
+        
+      })
       content.append(header, desc, action,comments);
       post.append(votes,content)
       getElement('.posts').appendChild(post);
-     
+      addCommentBtn.addEventListener('click',()=> {
+          const obj = {
+            description:input.value,
+            post_id:postInfo.id
+          }
+          fetch('/api/v1/comments',{
+            method: 'post',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(obj),
+          })
+          .then(res=>{
+            if(res.status === 401){
+              window.location.href = '/signIn';
+            } else {
+              return res.json();
+            }
+          })
+          .then(()=>{
+            const comment = createElement('div','comment');
+              const commentBy = createElement('span','comment-by',postInfo.name);
+              const commentContent = createElement('span','comment-content',input.value);
+              comment.append(commentBy,' ', commentContent);
+              comments.append(comment);
+          })
+          .catch(err=>console.log(err))
+      })
+      votesUp.addEventListener('click',()=> {
+        fetch(`/api/v1/votes/up/${postInfo.id}`,)
+        .then(res=>{
+          if(res.status === 401){
+            window.location.href = '/signIn';
+          } else {
+            return res.json();
+          }
+        })
+        .then((data)=>{
+          if(data.message === 'voted successfully :)') {
+            numberVotes.textContent++;
+          }
+          if(data.message === 'You voted before') {
+            swal('error', data.message, 'error');
+          }
+        })
+        .catch(err=>console.log(err))
+      })
+      votesDown.addEventListener('click',()=> {
+        fetch(`/api/v1/votes/down/${postInfo.id}`,)
+        .then(res=>{
+          if(res.status === 401){
+            window.location.href = '/signIn';
+          } else {
+            return res.json();
+          }
+        })
+        .then((data)=>{
+         
+          if(data.status === 400) {
+            swal('error', data.message, 'error');
+          }
+          if(data.message === 'Vote removed successfully :)') {
+            numberVotes.textContent--;
+          }
+        })
+        .catch(err=>console.log(err))
+      })
     });
-}
-
+};
