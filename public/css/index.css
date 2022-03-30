@@ -242,6 +242,9 @@ cursor: pointer;
 .comment-by {
     font-weight: bold;
 }
+.error-comment {
+    color: red;
+}
 .aside {
     /* padding: 1em; */
     width: 30%; 
