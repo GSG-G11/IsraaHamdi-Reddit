@@ -2,6 +2,7 @@
 /* eslint-disable no-undef */
 
   const renderPosts = (data) => {
+    deleteChild(getElement('.posts'))
       data.forEach((postInfo)=>{
       const post = createElement('div','post');
       const votes = createElement('div','votes');
@@ -80,7 +81,13 @@
             },
             body: JSON.stringify(obj),
           })
-          .then(res=>res.json())
+          .then(res=>{
+            if(res.status === 401){
+              window.location.href = '/signIn';
+            } else {
+              return res.json();
+            }
+          })
           .then(()=>{
             const comment = createElement('div','comment');
               const commentBy = createElement('span','comment-by',postInfo.name);
@@ -92,7 +99,13 @@
       })
       votesUp.addEventListener('click',()=> {
         fetch(`/api/v1/votes/up/${postInfo.id}`,)
-        .then(res=>res.json())
+        .then(res=>{
+          if(res.status === 401){
+            window.location.href = '/signIn';
+          } else {
+            return res.json();
+          }
+        })
         .then((data)=>{
           if(data.message === 'voted successfully :)') {
             numberVotes.textContent++;
@@ -105,13 +118,20 @@
       })
       votesDown.addEventListener('click',()=> {
         fetch(`/api/v1/votes/down/${postInfo.id}`,)
-        .then(res=>res.json())
+        .then(res=>{
+          if(res.status === 401){
+            window.location.href = '/signIn';
+          } else {
+            return res.json();
+          }
+        })
         .then((data)=>{
+         
+          if(data.status === 400) {
+            swal('error', data.message, 'error');
+          }
           if(data.message === 'Vote removed successfully :)') {
             numberVotes.textContent--;
-          }
-          if(data.message === 'You don\'t voted before') {
-            swal('error', data.message, 'error');
           }
         })
         .catch(err=>console.log(err))

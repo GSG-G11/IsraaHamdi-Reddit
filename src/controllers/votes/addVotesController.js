@@ -8,10 +8,11 @@ const addVotesController = (req,res,next) => {
         if(data.rowCount === 0) {
             addVotesQuery(user_id,post_id)
         } else {
-            res.status(400).json({status:400,message:'You voted before'});
+           return  res.status(400).json({status:400, message:'You voted before'});
         }
     })
-    .then (()=>res.status(201).json({status:201,message:'voted successfully :)'}))
+    .then (()=>{
+        res.status(201).json({status:201, message:'voted successfully :)'})})
     .catch(err=>next(err))
 }
 module.exports = addVotesController;

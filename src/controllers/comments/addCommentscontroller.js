@@ -2,7 +2,6 @@ const { addCommnetsQuery } = require('../../database/queries');
 const { commentsSchema, castmaizeError } = require('../../utils');
 
 const addCommentsController = (req,res,next) => { 
-    console.log(req.body)
     const { description, user_id, post_id } = req.body;
     commentsSchema.validateAsync({description})
     .then(()=>addCommnetsQuery(description,user_id,post_id))
