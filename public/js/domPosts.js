@@ -46,7 +46,8 @@
       const addCommentBtn = createElement('button','','add comment');
       addCommentBtn.type = 'button';
       addCommentBtn.id = 'add-comment-button' ;
-      form.append(input, addCommentBtn);
+      const errorComment = createElement('span','error-comment');
+      form.append(input, addCommentBtn, errorComment);
       addComment.append(form);
       comments.append(addComment);
       fetch(`/api/v1/post/comments/${postInfo.id}`)
@@ -70,6 +71,9 @@
       post.append(votes,content)
       getElement('.posts').appendChild(post);
       addCommentBtn.addEventListener('click',()=> {
+        if(input.value === '') {
+          errorComment.textContent = 'comment must not empty';
+        }else {
           const obj = {
             description:input.value,
             post_id:postInfo.id
@@ -84,18 +88,21 @@
           .then(res=>{
             if(res.status === 401){
               window.location.href = '/signIn';
+              throw new Error('your are not logged in')
             } else {
               return res.json();
             }
           })
-          .then(()=>{
-            const comment = createElement('div','comment');
+          .then((returnValue)=>{
+             const comment = createElement('div','comment');
               const commentBy = createElement('span','comment-by',postInfo.name);
               const commentContent = createElement('span','comment-content',input.value);
               comment.append(commentBy,' ', commentContent);
               comments.append(comment);
           })
           .catch(err=>console.log(err))
+        }
+        
       })
       votesUp.addEventListener('click',()=> {
         fetch(`/api/v1/votes/up/${postInfo.id}`,)
