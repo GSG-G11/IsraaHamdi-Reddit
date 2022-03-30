@@ -37,6 +37,7 @@ signInBtn.addEventListener('click', () => {
     })
       .then((res) => res.json())
       .then((data) => {
+        console.log(data)
        if (data.message === 'this email is not exists') {
         errorEmail.textContent = data.message;
        } else if (data.message === 'Invalid Password') {
